@@ -12,7 +12,7 @@ type Props = {
     setHandler: () => void
 }
 
-export const Settings = ({max, min, validValue, changeMaxValue, changeMinValue, setHandler}: Props) => {
+export const Settings = ({max, min, changeMaxValue, changeMinValue, setHandler, validValue}: Props) => {
 
 
     return (

@@ -1,25 +1,25 @@
 import {Button} from "../Button/Button.tsx";
 import s from "./Counter.module.css"
 import st from "./../Button/Button.module.css"
+import {useDispatch} from "react-redux";
+import {incrementAC, resetAC} from "../../model/counter-reducer.ts";
 
 type Props = {
     count: number
-    setCount: (count: number) => void
     maxValue: number
-    min: number
     validValue: boolean
     changeSettings: boolean
 }
 
-export const Counter = ({count, setCount, maxValue, min, validValue, changeSettings}: Props) => {
-
+export const Counter = ({count, maxValue, validValue, changeSettings}: Props) => {
+    const dispatch = useDispatch()
 
     const incHandler = () => {
-        if (count < maxValue) setCount(count + 1);
+        dispatch(incrementAC())
     }
 
     const resetHandler = () => {
-        setCount(min);
+        dispatch(resetAC())
     }
 
     return (
